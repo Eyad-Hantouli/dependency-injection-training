@@ -2,6 +2,7 @@ package com.training.dependencyInjection;
 
 import com.training.dependencyInjection.listAlgorithms.SortAlgorithmInterface;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
@@ -11,7 +12,7 @@ public class AlgorithmImpl {
     private final SortAlgorithmInterface sortAlgorithmInterface;
 
     @Autowired
-    public AlgorithmImpl(SortAlgorithmInterface sortAlgorithmInterface) {
+    public AlgorithmImpl(@Qualifier("descendingSort") SortAlgorithmInterface sortAlgorithmInterface) {
         this.sortAlgorithmInterface = sortAlgorithmInterface;
     }
 
